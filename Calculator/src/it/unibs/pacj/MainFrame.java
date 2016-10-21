@@ -80,8 +80,8 @@ public class MainFrame {
 		JButton btn_9 = new JButton("9");
 		panelNumbers.add(btn_9);
 		
-		JLabel lblNewLabel = new JLabel("");
-		panelNumbers.add(lblNewLabel);
+		JButton btn_dot = new JButton(".");
+		panelNumbers.add(btn_dot);
 		
 		JButton btn_0 = new JButton("0");
 		panelNumbers.add(btn_0);
@@ -122,62 +122,32 @@ public class MainFrame {
 		//Inserimento numeri
 		
 		btn_1.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_1.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_1.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_1.getText())));
 		btn_2.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_2.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_2.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_2.getText())));
 		btn_3.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_3.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_3.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_3.getText())));
 		btn_4.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_4.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_4.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_4.getText())));
 		btn_5.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_5.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_5.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_5.getText())));
 		btn_6.addActionListener(
-				e -> { 
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_6.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_6.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_6.getText())));
 		btn_7.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_7.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_7.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_7.getText())));
 		btn_8.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_8.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_8.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_8.getText())));
 		btn_9.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_9.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_9.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_9.getText())));
 		btn_0.addActionListener(
-				e -> {
-					//calculator.setNum1(Double.parseDouble(lblOut.getText().concat(btn_0.getText())));
-					lblOut.setText(lblOut.getText().concat(btn_0.getText()));
-				});
+				e -> lblOut.setText(lblOut.getText().concat(btn_0.getText())));
+		btn_dot.addActionListener(
+				e -> lblOut.setText(lblOut.getText().concat(btn_dot.getText())));
 		
 		//Cancellazione
 		
-		btn_ac.addActionListener(
-				e -> lblOut.setText(" "));
-		btn_del.addActionListener(
-				e -> lblOut.setText(lblOut.getText().substring(0, lblOut.getText().length()-1)));
+		btn_ac.addActionListener(e -> lblOut.setText(" "));
+		btn_del.addActionListener(e -> lblOut.setText(lblOut.getText().substring(0, lblOut.getText().length()-1)));
 		
 		//Operazioni
 		
@@ -215,6 +185,8 @@ public class MainFrame {
 		
 		
 	}
+	
+	
 	
 	
 

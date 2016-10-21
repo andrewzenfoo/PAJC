@@ -35,6 +35,8 @@ public class Calculator {
 		break;
 		}
 		
+		this.num1 = this.result;
+		
 		return this.result;
 	}
 
