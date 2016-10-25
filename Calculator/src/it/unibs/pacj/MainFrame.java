@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import java.awt.FlowLayout;
 
 public class MainFrame {
 
@@ -44,7 +45,7 @@ public class MainFrame {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 450, 307);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Calculator calculator = new Calculator();
@@ -52,6 +53,7 @@ public class MainFrame {
 		JPanel panelNumbers = new JPanel();
 		frame.getContentPane().add(panelNumbers, BorderLayout.CENTER);
 		panelNumbers.setLayout(new GridLayout(0, 3, 0, 0));
+	
 		
 		JButton btn_1 = new JButton("1");
 		panelNumbers.add(btn_1);
@@ -86,6 +88,7 @@ public class MainFrame {
 		JButton btn_0 = new JButton("0");
 		panelNumbers.add(btn_0);
 		
+		
 		JPanel panel = new JPanel();
 		panelNumbers.add(panel);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
@@ -119,30 +122,108 @@ public class MainFrame {
 		JLabel lblOut = new JLabel(" ");
 		frame.getContentPane().add(lblOut, BorderLayout.NORTH);
 		
+		
+		
+		//Creazione alternativa dei bottoni per i numeri (DA IMPLEMENTARE)
+		
+		/*
+		ActionListener btnDigitListener = new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Object source = e.getSource();
+				if (source instanceof JButton) {
+					JButton btn = (JButton) source;
+					lblOut.setText(lblOut.getText().concat(btn.getText()));
+				}
+			}
+		};
+		
+		for(int i=9; i>=0; i--) {
+			JButton btn = new JButton("" + i);
+			btn.addActionListener(btnDigitListener);
+			panelNumbers.add(btn);
+		}
+*/
+		
 		//Inserimento numeri
 		
+
 		btn_1.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_1.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_1.getText()));
+				});
 		btn_2.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_2.getText())));
+				e -> {
+					//lblOut.setText(" ");	
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_2.getText()));
+				});
 		btn_3.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_3.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_3.getText()));
+				});
 		btn_4.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_4.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_4.getText()));
+				});
 		btn_5.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_5.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_5.getText()));
+				});
 		btn_6.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_6.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_6.getText()));
+				});
 		btn_7.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_7.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_7.getText()));
+				});
 		btn_8.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_8.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_8.getText()));
+				});
 		btn_9.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_9.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_9.getText()));
+				});
 		btn_0.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_0.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_0.getText()));
+				});
 		btn_dot.addActionListener(
-				e -> lblOut.setText(lblOut.getText().concat(btn_dot.getText())));
+				e -> {
+					//lblOut.setText(" ");
+					if (lblOut.getText().equalsIgnoreCase(String.valueOf(calculator.getResult())))
+						lblOut.setText("");
+					lblOut.setText(lblOut.getText().concat(btn_dot.getText()));
+				});
 		
 		//Cancellazione
 		
@@ -153,33 +234,45 @@ public class MainFrame {
 		
 		btn_plus.addActionListener(
 				e -> {
-					calculator.setNum1(Double.parseDouble(lblOut.getText()));
-					lblOut.setText(" ");
-					calculator.setOperation(btn_plus.getText());
+					if (!lblOut.getText().equalsIgnoreCase("")) {
+						calculator.setNum1(Double.parseDouble(lblOut.getText()));
+						lblOut.setText(" ");
+						calculator.setOperation(btn_plus.getText());
+					}
 				});
 		btn_minus.addActionListener(
 				e -> {
-					calculator.setNum1(Double.parseDouble(lblOut.getText()));
-					lblOut.setText(" ");
-					calculator.setOperation(btn_minus.getText());
+					if (!lblOut.getText().equalsIgnoreCase("")) {
+						calculator.setNum1(Double.parseDouble(lblOut.getText()));
+						lblOut.setText(" ");
+						calculator.setOperation(btn_minus.getText());
+					}
 				});
 		btn_mul.addActionListener(
 				e -> {
-					calculator.setNum1(Double.parseDouble(lblOut.getText()));
-					lblOut.setText(" ");
-					calculator.setOperation(btn_mul.getText());
-				}
-				);
+					if (!lblOut.getText().equalsIgnoreCase("")) {
+						calculator.setNum1(Double.parseDouble(lblOut.getText()));
+						lblOut.setText(" ");
+						calculator.setOperation(btn_mul.getText());
+					}
+				});
 		btn_div.addActionListener(
 				e -> {
-					calculator.setNum1(Double.parseDouble(lblOut.getText()));
-					lblOut.setText(" ");
-					calculator.setOperation(btn_div.getText());
+					if (!lblOut.getText().equalsIgnoreCase("")) {
+						calculator.setNum1(Double.parseDouble(lblOut.getText()));
+						lblOut.setText(" ");
+						calculator.setOperation(btn_div.getText());
+					}
 				});
 		btn_eq.addActionListener(
 				e -> {
-					calculator.setNum2(Double.parseDouble(lblOut.getText()));
-					lblOut.setText(String.valueOf(calculator.getResult()));
+					if (!lblOut.getText().equalsIgnoreCase("")) {
+						calculator.setNum2(Double.parseDouble(lblOut.getText()));
+						lblOut.setText(String.valueOf(calculator.result()));
+						//calculator.setNum1(calculator.getResult());
+						calculator.setNum1(0);
+						calculator.setNum2(0);
+					}
 				});
 		
 		

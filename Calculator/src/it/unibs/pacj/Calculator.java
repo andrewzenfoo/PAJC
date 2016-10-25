@@ -22,7 +22,9 @@ public class Calculator {
 		this.operation = operation;
 	}
 	
-	public double getResult() {
+	public double result() {
+		
+		this.result = 0.0;
 		
 		switch (this.operation) {
 		case "+": this.result = this.num1 + this.num2;
@@ -35,11 +37,13 @@ public class Calculator {
 		break;
 		}
 		
-		this.num1 = this.result;
 		
 		return this.result;
 	}
-
+	
+	public double getResult() {
+		return this.result;
+	}
 	
 	
 	
