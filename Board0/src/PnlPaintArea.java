@@ -2,7 +2,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.*;
-
 import javax.swing.*;
 
 
@@ -81,7 +80,7 @@ public class PnlPaintArea extends JComponent implements MouseMotionListener, Mou
 	}
 	
 	Point screenToBoard(Point sc) {
-		return new Point(sc.x / size, sc.y * size);
+		return new Point(sc.x / size, sc.y / size);
 	}
 	
 	void paintBoard(Graphics g) {
