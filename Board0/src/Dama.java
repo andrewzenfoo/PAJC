@@ -20,8 +20,7 @@ public class Dama {
 			this.posizione = posizione;
 			this.tipo = tipo;
 			this.colore = colore;
-		}
-		
+		}	
 	}
 	
 	private HashMap<String, Dama.Pezzo> listaPezzi = new HashMap<>();
@@ -36,17 +35,13 @@ public class Dama {
 		this.size = size;
 		int k = 0;
 		
-		for(int j=0, i=1; j<3; j++, i-=size+1) {
-			for(; i<size; i+=2) {
+		for(int j=0, i=1; j<3; j++, i-=size+1) 
+			for(; i<size; i+=2) 
 				addPezzo(""+k++, i, j, Tipo.PEDINA, Colore.BIANCO);
-			}
-		}
-		
-		for(int j=0, i=1; j<3; j++, i-=size+1) {
-			for(; i<size; i+=2) {
+					
+		for(int j=0, i=0; j<3; j++, i-=size+1) 
+			for(; i<size; i+=2) 
 				addPezzo(""+k++, i, size-j-1, Tipo.PEDINA, Colore.NERO);
-			}
-		}		
 	}
 	
 	public Collection<Dama.Pezzo> listaPezzi() {
