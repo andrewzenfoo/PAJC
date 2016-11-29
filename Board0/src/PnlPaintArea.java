@@ -4,7 +4,6 @@ import java.awt.event.MouseMotionListener;
 import java.awt.*;
 import javax.swing.*;
 
-
 public class PnlPaintArea extends JComponent implements MouseMotionListener, MouseListener {
 	
 	private int reDraw = 0;
@@ -58,14 +57,12 @@ public class PnlPaintArea extends JComponent implements MouseMotionListener, Mou
 	
 	void paintPezzi(Graphics g) {
 		
-		if(game.getSelectedPezzo() != null) {
+		if(game.getSelectedPezzo() != null) 
 			fillOval(g, game.getSelectedPezzo().posizione, Color.RED, 0.05);
-			
-		}
 		
-		for(Dama.Pezzo p: game.listaPezzi()) {
+		for(Dama.Pezzo p: game.listaPezzi()) 
 			paintPezzo(g, p);
-		}
+	
 	}
 	
 	void paintPezzo(Graphics g, Dama.Pezzo p) {
@@ -85,9 +82,9 @@ public class PnlPaintArea extends JComponent implements MouseMotionListener, Mou
 	
 	void paintBoard(Graphics g) {
 		int size = getBoardCellSize();
-		g.setColor(Color.darkGray);
-		g.fillRect(0, 0, size*8, size*8);
 		g.setColor(Color.lightGray);
+		g.fillRect(0, 0, size*8, size*8);
+		g.setColor(Color.darkGray);
 		
 		for(int i=0; i<8; i++) 
 			for(int j=0; j<8; j++) {
@@ -126,11 +123,6 @@ public class PnlPaintArea extends JComponent implements MouseMotionListener, Mou
 		g.setColor(Color.RED);
 		g.drawRect(x, y, size, size);
 	}*/
-	
-	
-		
-	//Screen to board DA IMPLEMENTARE
-	//Board to screen DA IMPLEMENTARE
 		
 	public void mouseDragged(MouseEvent e) {
 		mouseClickPos = e.getPoint();
